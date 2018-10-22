@@ -1,5 +1,5 @@
 <template>
-  <div id="text">
+  <div id="app">
     {{text}}
   </div>
 </template>
@@ -15,7 +15,4 @@ export default {
 </script>
 
 <style>
-#text {
-  color: red;
-}
 </style>
