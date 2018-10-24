@@ -22,10 +22,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(gif|jpg|jpeg|png|svg)$/,
@@ -66,26 +63,28 @@ if (isDev) {
       'stylus-loader'
     ]
   })
+  config.devtool = '#cheap-module-eval-source-map'
   config.devServer = {
     port: 8000,
     host: '0.0.0.0',
     overlay: {
       errors: true
     },
-    hot: true
+    hot: true,
+    open: true
   }
   config.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
-    )
-  } else {
-    config.entry = {
-      app: path.join(__dirname, 'src/index.js'),
-      vendor: ['vue']
-    }
-    config.output.filename = '[name].[chunkhash:8].js'
-    config.module.rules.push({
-      test: /\.styl/,
+  )
+} else {
+  config.entry = {
+    app: path.join(__dirname, 'src/index.js'),
+    vendor: ['vue']
+  }
+  config.output.filename = '[name].[chunkhash:8].js'
+  config.module.rules.push({
+    test: /\.styl/,
     use: ExtractPlugin.extract({
       fallback: 'style-loader',
       use: [
