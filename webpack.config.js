@@ -52,7 +52,6 @@ const config = {
 }
 
 if (isDev) {
-  config.output.filename = '[name].[chunkhash:8].js'
   config.module.rules.push({
     test: /\.styl/,
     use: [
@@ -72,11 +71,17 @@ if (isDev) {
     host: '0.0.0.0',
     overlay: {
       errors: true
-    }
+    },
+    hot: true
   }
-} else {
-  config.module.rules.push({
-    test: /\.styl/,
+  config.plugins.push(
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+    )
+  } else {
+    config.output.filename = '[name].[chunkhash:8].js'
+    config.module.rules.push({
+      test: /\.styl/,
     use: ExtractPlugin.extract({
       fallback: 'style-loader',
       use: [
