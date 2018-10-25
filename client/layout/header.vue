@@ -1,10 +1,10 @@
 <template>
-  <header class="main-header">
+  <header :class="$style.mainHeader">
       <h1>JToDo</h1>
   </header>
 </template>
 
-<style lang="scss" >
+<style lang="scss" module>
 .main-header {
   display: block;
   width: 100%;
