@@ -10,6 +10,7 @@
   width: 100%;
   height: 100px;
   text-align: center;
+  margin-top: 40px;
   h1 {
     display: inline;
     line-height: 100px;

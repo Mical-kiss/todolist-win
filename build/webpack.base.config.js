@@ -2,10 +2,10 @@ const path = require('path')
 
 const config = {
   target: 'web',
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: path.resolve(__dirname, '../client/index.js'),
   output: {
     filename: 'bundle.[hash:8].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, '../dist')
   },
   module: {
     rules: [
@@ -18,6 +18,11 @@ const config = {
         loader: 'babel-loader'
       },
       {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
@@ -28,7 +33,7 @@ const config = {
             loader: 'url-loader',
             options: {
               limit: 1024,
-              name: '[name].[ext]'
+              name: 'resources/[path][name]-[hash:8].[ext]'
             }
           }
         ]
@@ -36,6 +41,5 @@ const config = {
     ]
   }
 }
-
 
 module.exports = config
