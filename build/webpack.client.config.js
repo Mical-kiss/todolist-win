@@ -9,7 +9,7 @@ const baseConfig = require('./webpack.base.config')
 const defaultPlugins = [
   new webpack.DefinePlugin({
     'process.env': {
-      NODE_ENV: isDev ? '"development"' : '"productment"'
+      NODE_ENV: isDev ? '"development"' : '"production"'
     }
   }),
   new HTMLPlugin()

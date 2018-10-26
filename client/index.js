@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './app.vue'
-import './assets/styles/globel.stylus'
+import './assets/styles/global.stylus'
 const root = document.createElement('div')
 document.body.appendChild(root)
 
