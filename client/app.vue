@@ -7,21 +7,21 @@
   </div>
 </template>
 <script>
-import Header from "./layout/header.vue";
-import Footer from "./layout/footer.jsx";
-import Todo from "./views/todo/todo.vue";
+import Header from './layout/header.vue'
+import Footer from './layout/footer.jsx'
+import Todo from './views/todo/todo.vue'
 export default {
-  data() {
+  data () {
     return {
-      text: "abcdef"
-    };
+      text: 'abcdef'
+    }
   },
   components: {
-      Header,
-      Footer,
-      Todo
+    Header,
+    Footer,
+    Todo
   }
-};
+}
 </script>
 
 <style lang="stylus">

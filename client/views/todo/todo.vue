@@ -6,50 +6,50 @@
     </section>
 </template>
 <script>
-import Item from "./item.vue";
-import Tabs from "./tabs.vue";
-let id = 0;
+import Item from './item.vue'
+import Tabs from './tabs.vue'
+let id = 0
 export default {
-  data() {
+  data () {
     return {
       todos: [],
-      filter: "all"
-    };
+      filter: 'all'
+    }
   },
   components: {
     Item,
     Tabs
   },
   methods: {
-    addTo(e) {
+    addTo (e) {
       this.todos.unshift({
         id: id++,
         content: e.target.value,
         completed: false
-      });
-      e.target.value = "";
+      })
+      e.target.value = ''
     },
-    deleteTodo(id) {
-      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1);
+    deleteTodo (id) {
+      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
-    toggleFilter(state) {
-      console.log(234);
-      this.filter = state;
+    toggleFilter (state) {
+      console.log(234)
+      this.filter = state
     },
-    clearAllComplete() {
-      this.todos = this.todos.filter(todo => !todo.completed);
+    clearAllComplete () {
+      this.todos = this.todos.filter(todo => !todo.completed)
     }
   },
   computed: {
-    filteredTodos() {
-      if (this.filter === "all") {
-        return this.todos;
+    filteredTodos () {
+      if (this.filter === 'all') {
+        return this.todos
       }
-      const completed = this.filter === "completed";
-      return this.todos.filter(todo => completed === todo.completed);
+      const completed = this.filter === 'completed'
+      return this.todos.filter(todo => completed === todo.completed)
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

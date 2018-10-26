@@ -23,25 +23,25 @@ export default {
       type: Array
     }
   },
-  data() {
+  data () {
     return {
-      states: ["all", "active", "completed"]
-    };
+      states: ['all', 'active', 'completed']
+    }
   },
   computed: {
-    unFinishedTodoLength() {
-      return this.todos.filter(todo => !todo.completed).length;
+    unFinishedTodoLength () {
+      return this.todos.filter(todo => !todo.completed).length
     }
   },
   methods: {
-    clearAllComplete() {
-      this.$emit("clearAllComplete");
+    clearAllComplete () {
+      this.$emit('clearAllComplete')
     },
-    toggleFilter(state) {
-      this.$emit("toggle", state);
+    toggleFilter (state) {
+      this.$emit('toggle', state)
     }
   }
-};
+}
 </script>
 
 <style lang="scss" >
