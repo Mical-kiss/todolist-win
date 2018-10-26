@@ -17,7 +17,7 @@ const defaultPlugins = [
 let config
 const devServer = {
   port: 8000,
-  host: '0.0.0.0',
+  host: 'localhost',
   overlay: {
     errors: true
   },
