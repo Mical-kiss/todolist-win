@@ -6,7 +6,8 @@ const config = {
   entry: path.resolve(__dirname, '../client/index.js'),
   output: {
     filename: 'bundle.[hash:8].js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/public/'
   },
   module: {
     rules: [

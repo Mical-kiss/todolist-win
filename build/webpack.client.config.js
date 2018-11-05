@@ -12,7 +12,9 @@ const defaultPlugins = [
       NODE_ENV: isDev ? '"development"' : '"production"'
     }
   }),
-  new HTMLPlugin()
+  new HTMLPlugin({
+    template: path.join(__dirname, 'template.html')
+  })
 ]
 let config
 const devServer = {
@@ -21,8 +23,11 @@ const devServer = {
   overlay: {
     errors: true
   },
-  hot: true,
-  open: true
+  historyApiFallback: {
+    index: '/public/index.html'
+  },
+  hot: true
+  // open: true
 }
 if (isDev) {
   config = merge(baseConfig, {

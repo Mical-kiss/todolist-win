@@ -1,8 +1,12 @@
 <template>
-  <div id="app">
-      <!-- <div id="cover"></div> -->
+  <div id="root">
       <Header></Header>
-      <Todo></Todo>
+      <div>
+        <router-link to="/app">app</router-link>
+        <router-link to="/login">login</router-link>
+      </div>
+      <!-- <Todo></Todo> -->
+      <router-view></router-view>
       <Footer></Footer>
   </div>
 </template>
@@ -25,7 +29,7 @@ export default {
 </script>
 
 <style lang="stylus">
-#app {
+#root {
   width: 80%;
   margin: 0 auto;
   #cover {
