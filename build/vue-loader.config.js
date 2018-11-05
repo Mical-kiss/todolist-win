@@ -1,7 +1,7 @@
 module.exports = (isDev) => {
   return {
     preserveWhitespace: true,
-    extractCSS: !isDev, //抽取组件css
+    extractCSS: !isDev, // 抽取组件css
     cssModules: {
       localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]',
       camelCase: true

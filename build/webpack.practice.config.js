@@ -24,37 +24,37 @@ const devServer = {
   hot: true,
   open: true
 }
-  config = merge(baseConfig, {
-    entry: path.resolve(__dirname, '../practice/index.js'),
-    module: {
-      rules: [
-        {
-          test: /\.styl/,
-          use: [
-            'vue-style-loader',
-            'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true
-              }
-            },
-            'stylus-loader'
-          ]
-        }
-      ]
-    },
-    devtool: '#cheap-module-eval-source-map',
-    devServer,
-    resolve: {
-      alias: {
-        'vue': path.join(__dirname, '../node_modules/vue/dist/vue.esm.js')
+config = merge(baseConfig, {
+  entry: path.resolve(__dirname, '../practice/index.js'),
+  module: {
+    rules: [
+      {
+        test: /\.styl/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          'stylus-loader'
+        ]
       }
-    },
-    plugins: defaultPlugins.concat([
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin()
-    ])
-  })
+    ]
+  },
+  devtool: '#cheap-module-eval-source-map',
+  devServer,
+  resolve: {
+    alias: {
+      vue: path.join(__dirname, '../node_modules/vue/dist/vue.esm.js')
+    }
+  },
+  plugins: defaultPlugins.concat([
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ])
+})
 
 module.exports = config
