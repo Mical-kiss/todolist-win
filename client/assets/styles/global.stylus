@@ -7,3 +7,5 @@ html, body {
 body {
   background: #ccc
 }
+.router-link-active
+  color: red
