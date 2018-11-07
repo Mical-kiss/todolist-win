@@ -8,7 +8,7 @@
         {{state}}
       </span>
     </span>
-    <span class="clear" @click="clearAllComplete">删除全部</span>
+    <span class="clear" @click="clearAllComplete">删除已完成</span>
   </div>
 </template>
 
