@@ -2,6 +2,9 @@
   <div id="root">
       <Header></Header>
       <div>
+        {{count}}
+      </div>
+      <div>
         <router-link to="/app">app</router-link>
         <router-link to="/login">login</router-link>
       </div>
@@ -18,6 +21,14 @@ export default {
   data () {
     return {
       text: 'abcdef'
+    }
+  },
+  mounted () {
+    console.log(this.$store)
+  },
+  computed: {
+    count () {
+      return this.$store.state.count
     }
   },
   components: {

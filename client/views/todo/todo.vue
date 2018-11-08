@@ -33,7 +33,6 @@ export default {
       this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
     toggleFilter (state) {
-      console.log(234)
       this.filter = state
     },
     clearAllComplete () {
