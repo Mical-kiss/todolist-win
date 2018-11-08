@@ -25,6 +25,10 @@ export default {
   },
   mounted () {
     console.log(this.$store)
+    setTimeout(() => {
+      // this.$store.commit('updateCount', 222)
+    }, 4000)
+    this.$store.dispatch('asyncUpdateCount', 1234567)
   },
   computed: {
     count () {
