@@ -1,22 +1,24 @@
 <template>
   <div id="root">
-      <Header></Header>
-      <div>
-        {{count}}
+    <div class="warp">
+      <div class="content">
+        <Header></Header>
+        <div>
+          {{count}}
+        </div>
+        <div>
+          <router-link to="/app">app</router-link>
+          <router-link to="/login">login</router-link>
+        </div>
+        <router-view></router-view>
       </div>
-      <div>
-        <router-link to="/app">app</router-link>
-        <router-link to="/login">login</router-link>
-      </div>
-      <!-- <Todo></Todo> -->
-      <router-view></router-view>
-      <Footer></Footer>
+    </div>
+    <Footer class="footer"></Footer>
   </div>
 </template>
 <script>
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
-// import Todo from './views/todo/todo.vue'
 export default {
   data () {
     return {
@@ -38,15 +40,22 @@ export default {
   components: {
     Header,
     Footer
-    // Todo
   }
 }
 </script>
 
 <style lang="stylus">
 #root {
+  height: 100%;
   width: 80%;
   margin: 0 auto;
+  .warp {
+    height: auto;
+    min-height: 100%;
+    .content {
+      padding-bottom: 80px
+    }
+  }
   #cover {
     color: rgb(238, 39, 39);
     position: absolute;
@@ -59,7 +68,11 @@ export default {
     opacity: 0.9;
   }
   #footer {
-    text-align center
+    text-align center;
+    position: relative;
+    margin-top: -80px;
+    height: 80px;
+    word-wrap: break-word;
   }
 }
 </style>
