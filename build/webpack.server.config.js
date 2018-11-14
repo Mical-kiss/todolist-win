@@ -33,7 +33,7 @@ config = merge(baseConfig, {
     filename: 'server-entry.js',
     path: path.join(__dirname, '../server-build')
   },
-  externals: Object.keys(require('../package.json').dependencies), // node环境使用node_modules目录文件
+  externals: Object.keys(require('../package.json').dependencies), // node环境使用node_modules目录文件，不需要被webpack打包
   plugins: [
     new ExtractPlugin('styles.[contentHash:8].css'),
     new webpack.DefinePlugin({
