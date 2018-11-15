@@ -16,7 +16,7 @@ let bundle
 serverCompiler.watch({}, (err, stats) => {
   if (err) throw err
   stats = stats.toJson()
-  stats.error.forEacj(err => console.log(err))
+  stats.error.forEach(err => console.log(err))
   stats.hasWarnings.forEach(warn => console.log(warn))
 
   const bundlePath = path.join(
@@ -39,6 +39,6 @@ const handleSSR = async (ctx) => {
   )
   const renderer = VueServerRenderer
     .createBundleRenderer(bundle, {
-      injext: false
+      inject: false
     })
 }
