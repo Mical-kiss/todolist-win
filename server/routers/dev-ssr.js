@@ -38,7 +38,8 @@ const handleSSR = async (ctx) => {
   )
   const clientManifest = clientManifestResp.data
   const template = fs.readFileSync(
-    path.join(__dirname, '../server.template.ejs')
+    path.join(__dirname, '../server.template.ejs'),
+    'utf-8'
   )
   const renderer = VueServerRenderer
     .createBundleRenderer(bundle, {

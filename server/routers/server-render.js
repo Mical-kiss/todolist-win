@@ -5,7 +5,7 @@ module.exports = async (ctx, renderer, template) => {
 
   const context = { url: ctx.path }
   try {
-    const appString = await renderer.renderToString()
+    const appString = await renderer.renderToString(context)
     const html = ejs.render(template, {
       appString,
       style: context.renderStyles(),

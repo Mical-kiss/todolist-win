@@ -30,11 +30,11 @@ export default {
     setTimeout(() => {
       // this.$store.commit('updateCount', 222)
     }, 4000)
-    this.$store.dispatch('asyncUpdateCount', 1234567)
+    // this.$store.dispatch('asyncUpdateCount', 1234567)
   },
   computed: {
     count () {
-      return this.$store.state.count
+      return 'this.$store.state.count'
     }
   },
   components: {
