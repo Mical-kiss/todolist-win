@@ -2,11 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuex from 'Vuex'
 
+import './assets/styles/global.styl'
+
 import App from './app.vue'
 import creatRouter from './config/router'
 import creatStore from './store/store'
 
-import './assets/styles/global.stylus'
 Vue.use(VueRouter)
 Vue.use(Vuex)
 
