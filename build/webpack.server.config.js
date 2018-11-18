@@ -8,7 +8,7 @@ const VueServerPlugin = require('vue-server-renderer/server-plugin')
 let config
 config = merge(baseConfig, {
   target: 'node',
-  entry: path.resolve(__dirname, '../client/server-entry.js'),
+  entry: path.join(__dirname, '../client/server-entry.js'),
   module: {
     rules: [{
       test: /\.styl/,
