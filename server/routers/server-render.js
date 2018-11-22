@@ -6,10 +6,10 @@ module.exports = async (ctx, renderer, template) => {
   const context = { url: ctx.path }
   try {
     const appString = await renderer.renderToString(context)
-    console.log({
-      url: ctx.path
-    })
-    console.log(context.renderScripts())
+    // console.log({
+    //   url: ctx.path
+    // })
+    // console.log(context.renderScripts())
     const html = ejs.render(template, {
       appString,
       style: context.renderStyles(),
