@@ -10,10 +10,12 @@ module.exports = async (ctx, renderer, template) => {
     //   url: ctx.path
     // })
     // console.log(context.renderScripts())
+    const { title } = context.meta.inject()
     const html = ejs.render(template, {
       appString,
       style: context.renderStyles(),
-      scripts: context.renderScripts()
+      scripts: context.renderScripts(),
+      title: title.text()
     })
 
     ctx.body = html
