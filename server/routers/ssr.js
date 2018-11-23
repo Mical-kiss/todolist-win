@@ -3,7 +3,7 @@ const path = require('path')
 const VueServerRenderer = require('vue-server-renderer')
 const fs = require('fs')
 
-const clientManifest = require('../../dist/vue-ssr-client-manifest.json')
+const clientManifest = require('../../public/vue-ssr-client-manifest.json')
 const serverRender = require('./server-render.js')
 
 const template = fs.readFileSync(

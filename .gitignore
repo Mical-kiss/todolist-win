@@ -16,3 +16,4 @@ config/config.dev.js
 .arcconfig
 .stylelintcache
 server-build
+public
