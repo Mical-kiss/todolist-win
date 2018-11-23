@@ -30,6 +30,13 @@ app.use(async (ctx, next) => {
   }
 })
 
+// let pageRouter
+// if (isDev) {
+//   pageRouter = require('./routers/dev-ssr.js')
+// } else {
+//   pageRouter = require('./routers/ssr.js')
+// }
+
 app.use(pageRouter.routes()).use(pageRouter.allowedMethods())
 
 const HOST = process.env.HOST || '0.0.0.0'
