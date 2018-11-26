@@ -13,6 +13,7 @@
         <router-view></router-view>
       </div>
     </div>
+    <notification :content="`hello world222`"></notification>
     <Footer class="footer"></Footer>
   </div>
 </template>
