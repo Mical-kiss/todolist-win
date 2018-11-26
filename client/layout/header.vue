@@ -1,6 +1,6 @@
 <template>
   <header :class="$style.mainHeader">
-      <h1>JToDo</h1>
+      <h1>Todo App</h1>
   </header>
 </template>
 
@@ -15,7 +15,7 @@
     display: inline;
     line-height: 100px;
     color: rgba(175, 47, 47, 0.4);
-    font-size: 100px;
+    font-size: 50px;
     margin: 20px;
   }
 }
