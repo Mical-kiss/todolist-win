@@ -11,9 +11,10 @@
           <router-link to="/login">login</router-link>
         </div>
         <router-view></router-view>
+        <button @click="addNotify">click</button>
       </div>
     </div>
-    <notification :content="`hello world222`"></notification>
+    <!-- <notification :content="`hello world222`"></notification> -->
     <Footer class="footer"></Footer>
   </div>
 </template>
@@ -29,8 +30,15 @@ export default {
       text: 'abcdef'
     }
   },
+  methods: {
+    addNotify () {
+      this.$notify({
+        content: 'test notify',
+        btn: 'close'
+      })
+    }
+  },
   mounted () {
-    console.log(this.$store)
     setTimeout(() => {
       this.$store.commit('updateCount', 222)
     }, 4000)

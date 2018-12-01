@@ -1,6 +1,8 @@
 <template>
-  <transition>
-    <div class="notification" name="fade" :style="style">
+  <transition name="fade" @after-leave="afterLeave">
+    <div class="notification"
+    :style="style"
+    v-show="visible">
       <span class="content">
         {{content}}
       </span>
@@ -14,6 +16,11 @@
 <script>
 export default {
   name: 'Notification',
+  data () {
+    return {
+      visible: true
+    }
+  },
   props: {
     content: {
       type: String,
@@ -33,6 +40,9 @@ export default {
     handleClose (e) {
       e.preventDefault()
       this.$emit('close')
+    },
+    afterLeave () {
+      this.$emit('closed')
     }
   }
 }
@@ -46,4 +56,10 @@ export default {
   background rgba(111, 111, 111, .6)
   padding 20px
   transition all .3s
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
