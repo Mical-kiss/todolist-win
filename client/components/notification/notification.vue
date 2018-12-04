@@ -1,8 +1,10 @@
 <template>
-  <transition name="fade" @after-leave="afterLeave">
+  <transition name="fade" @after-leave="afterLeave" @after-enter="afterEnter">
     <div class="notification"
     :style="style"
-    v-show="visible">
+    v-show="visible"
+    @mouseenter="clearTimer"
+    @mouseleave="creatTimer">
       <span class="content">
         {{content}}
       </span>
@@ -43,7 +45,10 @@ export default {
     },
     afterLeave () {
       this.$emit('closed')
-    }
+    },
+    afterEnter () {},
+    clearTimer () {},
+    creatTimer () {}
   }
 }
 </script>
@@ -55,7 +60,7 @@ export default {
   right 0
   background rgba(111, 111, 111, .6)
   padding 20px
-  transition all .3s
+  transition all .5s ease-out
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }

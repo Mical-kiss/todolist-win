@@ -6,7 +6,8 @@ export default {
     return {
       verticalOffset: 0,
       autoClose: 3000,
-      height: 0
+      height: 0,
+      visible: false
     }
   },
   computed: {
@@ -33,6 +34,9 @@ export default {
       if (this.timer) {
         clearTimeout(this.timer)
       }
+    },
+    afterEnter () {
+      this.height = this.$el.offsetHeight
     }
   },
   beforeDestory () {
