@@ -14,7 +14,6 @@ const removeInstance = (instance) => {
 
   if (len <= 1) return
   const removeHeight = instance.vm.height
-  console.log(removeHeight)
   for (let i = index; i < len - 1; i++) {
     instances[i].verticalOffset =
       parseInt(instances[i].verticalOffset) - removeHeight - 16

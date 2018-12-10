@@ -31,6 +31,7 @@ export default {
       }
     },
     clearTimer () {
+      console.log(123)
       if (this.timer) {
         clearTimeout(this.timer)
       }
@@ -39,7 +40,7 @@ export default {
       this.height = this.$el.offsetHeight
     }
   },
-  beforeDestory () {
+  beforeDestroy () {
     this.clearTimer()
   }
 }
