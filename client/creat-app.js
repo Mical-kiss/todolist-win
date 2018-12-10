@@ -7,10 +7,12 @@ import App from './app.vue'
 import creatRouter from './config/router'
 import creatStore from './store/store'
 import Notification from './components/notification/index'
+import Tabs from './components/tabs/index'
 import './assets/styles/global.styl'
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(Notification)
+Vue.use(Tabs)
 Vue.use(Meta)
 
 export default () => {

@@ -1,13 +1,33 @@
 <template>
     <section class="real-app">
-        <input type="text" class="add-input" autofocus placeholder="做什么？" @keyup.enter="addTo">
-        <item @del="deleteTodo" :todo="todo" v-for="(todo,index) in filteredTodos" :key="index"></item>
-        <tabs :filter="filter" :todos="todos" @toggle="toggleFilter" @clearAllComplete="clearAllComplete"></tabs>
+      <div class="tab-container">
+        <tabs :value="filter" @change="handleChange">
+          <!-- <tab label="tab1" index="1">
+            <span>
+              tabcontent1
+            </span>
+          </tab>
+          <tab label="tab2" index="2">
+            <span>
+              tabcontent2
+            </span>
+          </tab>
+          <tab label="tab3" index="3">
+            <span>
+              tabcontent3
+            </span>
+          </tab> -->
+          <tab v-for="tab in states" :key="tab" :index="tab" :label="tab"></tab>
+        </tabs>
+      </div>
+      <input type="text" class="add-input" autofocus placeholder="做什么？" @keyup.enter="addTo">
+      <item @del="deleteTodo" :todo="todo" v-for="(todo,index) in filteredTodos" :key="index"></item>
+      <helper :filter="filter" :todos="todos" @clearAllComplete="clearAllComplete"></helper>
     </section>
 </template>
 <script>
 import Item from './item.vue'
-import Tabs from './tabs.vue'
+import Helper from './helper.vue'
 let id = 0
 export default {
   metaInfo: {
@@ -16,14 +36,18 @@ export default {
   data () {
     return {
       todos: [],
-      filter: 'all'
+      filter: 'all',
+      states: ['all', 'active', 'completed']
     }
   },
   components: {
     Item,
-    Tabs
+    Helper
   },
   methods: {
+    handleChange (value) {
+      this.filter = value
+    },
     addTo (e) {
       this.todos.unshift({
         id: id++,
@@ -34,9 +58,6 @@ export default {
     },
     deleteTodo (id) {
       this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
-    },
-    toggleFilter (state) {
-      this.filter = state
     },
     clearAllComplete () {
       this.todos = this.todos.filter(todo => !todo.completed)

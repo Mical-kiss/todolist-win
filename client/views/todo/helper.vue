@@ -3,11 +3,11 @@
     <span class="left">
       {{unFinishedTodoLength}} items left
     </span>
-    <span class="tabs">
+    <!-- <span class="tabs">
       <span v-for="state in states" :key="state" :class="[state, filter === state ? 'actived' : '']" @click="toggleFilter(state)">
         {{state}}
       </span>
-    </span>
+    </span> -->
     <span class="clear" @click="clearAllComplete">删除已完成</span>
   </div>
 </template>
@@ -23,11 +23,11 @@ export default {
       type: Array
     }
   },
-  data () {
-    return {
-      states: ['all', 'active', 'completed']
-    }
-  },
+  // data () {
+  //   return {
+  //     states: ['all', 'active', 'completed']
+  //   }
+  // },
   computed: {
     unFinishedTodoLength () {
       return this.todos.filter(todo => !todo.completed).length
