@@ -1,6 +1,7 @@
 const Koa = require('koa')
 const send = require('koa-send')
 const path = require('path')
+const koaBody = require('koa-body')
 const staticRouter = require('./routers/static.js')
 const apiRouter = require('./routers/api.js')
 const createDb = require('./db/db.js')
@@ -23,6 +24,7 @@ app.use(async (ctx, next) => {
     }
   }
 })
+app.use(koaBody())
 app.use(async (ctx, next) => {
   ctx.db = db
   await next()
