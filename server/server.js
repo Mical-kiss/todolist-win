@@ -2,10 +2,13 @@ const Koa = require('koa')
 const send = require('koa-send')
 const path = require('path')
 const staticRouter = require('./routers/static.js')
+const apiRouter = require('./routers/api.js')
+const createDb = require('./db/db.js')
+const config = require('../app.config.js')
 const app = new Koa()
 
 const isDev = process.env.NODE_ENV === 'development'
-
+const db = createDb(config.db.appId, config.db.appKey)
 app.use(async (ctx, next) => {
   try {
     console.log(`request with path ${ctx.path}`)
@@ -20,6 +23,10 @@ app.use(async (ctx, next) => {
     }
   }
 })
+app.use(async (ctx, next) => {
+  ctx.db = db
+  await next()
+})
 
 app.use(async (ctx, next) => {
   if (ctx.path === '/favicon.ico') {
@@ -30,6 +37,7 @@ app.use(async (ctx, next) => {
 })
 
 app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
+app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
 let pageRouter
 if (isDev) {
   pageRouter = require('./routers/dev-ssr.js')
